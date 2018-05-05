@@ -59,8 +59,6 @@ class AppController : Application() {
 
         @get:Synchronized var mInstance: AppController? = null
             private set
-//        @get:Synchronized var router: Router<BasicAppState>? = null
-//            private set
 
     }
 
