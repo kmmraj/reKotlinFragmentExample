@@ -43,11 +43,11 @@ class BackStackActivity : AppCompatActivity() {
         ft.commitAllowingStateLoss()
     }
 
-    override fun onBackPressed() {
-
-        super.onBackPressed()
-        handleBackOrCloseAction()
-    }
+//    override fun onBackPressed() {
+//
+//        super.onBackPressed()
+//        handleBackOrCloseAction()
+//    }
 
     private fun handleBackOrCloseAction() {
         super.onBackPressed()
@@ -59,6 +59,8 @@ class BackStackActivity : AppCompatActivity() {
 
 
     private fun startOneFragment(activity: WeakReference<AppCompatActivity>) {
+
+        // TODO: Fix this with appending the existing route
         val routes = arrayListOf(mainActivityRoute, backStackActivityRoute, oneFragmentRoute)
         val action = SetRouteAction(route = routes)
         val actionData = SetRouteSpecificData(route= routes,data = FragmentDataValue(activity, true))
@@ -67,6 +69,7 @@ class BackStackActivity : AppCompatActivity() {
     }
 
     private fun startTwoFragment(activity: WeakReference<AppCompatActivity>) {
+        // TODO: Fix this with appending the existing route
         val routes = arrayListOf(mainActivityRoute, backStackActivityRoute, twoFragmentRoute)
         val action = SetRouteAction(route = routes)
         val actionData = SetRouteSpecificData(route= routes,data = FragmentDataValue(activity, true))

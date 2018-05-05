@@ -59,7 +59,7 @@ object RoutableHelper {
                         .getRouteSpecificState<FragmentDataValue>(currentRoute)!!
         val activity = intentData.activity.get()!!
         val addToBackStack = intentData.addToBackStack
-        addFragment(fragment, activity, false, "OneFragment")
+        addFragment(fragment, activity, addToBackStack, tag,R.id.container_frame_back_stack)
         //changeFragment(fragment,activity,addToBackStack,tag,R.id.container_frame_back)
 
         return FragmentRoutable(activity.applicationContext)
@@ -202,7 +202,8 @@ class BackStackActivityRoutable(val context: Context): Routable {
 fun addFragment(fragment: Fragment?,
                 appCompatActivity: AppCompatActivity,
                 addToBackStack: Boolean,
-                tag: String) {
+                tag: String,
+                containerId: Int) {
 
 
 //    val manager = appCompatActivity.supportFragmentManager
@@ -215,7 +216,10 @@ fun addFragment(fragment: Fragment?,
 //    ft.commitAllowingStateLoss()
 
     fragment?.let {
-        appCompatActivity.loadFragment(fragment, R.id.container_frame_back_stack){}
+        appCompatActivity.loadFragment(fragment,
+                containerId,
+                tag,
+                addToBackStack){}
     }
 
 }
