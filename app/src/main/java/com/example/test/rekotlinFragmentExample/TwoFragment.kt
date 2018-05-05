@@ -8,7 +8,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.test.kotlinbasicfragment.R
+import com.example.test.reKotlinFragmentExample.R
 
 
 class TwoFragment : Fragment() {
