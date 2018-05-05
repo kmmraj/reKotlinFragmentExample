@@ -43,14 +43,13 @@ class BackStackActivity : AppCompatActivity() {
         ft.commitAllowingStateLoss()
     }
 
-//    override fun onBackPressed() {
-//
-//        super.onBackPressed()
-//        handleBackOrCloseAction()
-//    }
+    override fun onBackPressed() {
+
+        super.onBackPressed()
+        handleBackOrCloseAction()
+    }
 
     private fun handleBackOrCloseAction() {
-        super.onBackPressed()
         mainStore.dispatch(DismissBackStackActivityAction())
         val mainActivityRoutes = arrayListOf(mainActivityRoute)
         val mainActivityAction = SetRouteAction(route = mainActivityRoutes)
