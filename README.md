@@ -15,7 +15,7 @@ A Fragment example, build with [ReKotlin](https://github.com/ReKotlin/ReKotlin) 
 ### Dispatching actions that request routing Fragments
 
 You can dispatch the actions that invoke the `Fragments` similar to `Activity` .
-```
+```Kotlin
 val routes = arrayListOf(mainActivityRoute, backStackActivityRoute, oneFragmentRoute)
 val action = SetRouteAction(route = routes)
 val actionData = SetRouteSpecificData(route= routes,data = FragmentDataValue(activity, true))
@@ -27,7 +27,7 @@ The function `SetRouteSpecificData` passes the data to Router to create the frag
 ###### What kind data need to be passed?
 
 The signature of `FragmentDataValue` looks like
-```
+```Kotlin
 class FragmentDataValue(val activity: WeakReference<AppCompatActivity>, val addToBackStack: Boolean)
 ```
 
@@ -36,7 +36,7 @@ We need to pass the `WeakReference` of the activity.
 ### Routable that creates Fragments
 
 You should override the functions to create the Fragments
-```
+```Kotlin
  override fun pushRouteSegment(routeElementIdentifier: RouteElementIdentifier,
                                   animated: Boolean,
                                   completionHandler: RoutingCompletionHandler): Routable {
@@ -56,7 +56,7 @@ You should override the functions to create the Fragments
 
 Let's look at the function `backStackFragmentRoutable`
 
-```
+```Kotlin
 fun backStackFragmentRoutable(fragment: Fragment,tag: String): FragmentRoutable {
         val currentRoute = mainStore.state.navigationState.route
         val intentData: FragmentDataValue =
